@@ -13,3 +13,5 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.io/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
 # flutter_expand_cards
+
+> Tanks for flutter_swiper package inspire!
