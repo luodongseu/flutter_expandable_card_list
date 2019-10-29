@@ -615,40 +615,40 @@ abstract class _SubSwiper extends StatefulWidget {
   }
 }
 
-class _TinderSwiper extends _SubSwiper {
-  _TinderSwiper({
-    Key key,
-    Curve curve,
-    int duration,
-    SwiperController controller,
-    ValueChanged<int> onIndexChanged,
-    double itemHeight,
-    double itemWidth,
-    IndexedWidgetBuilder itemBuilder,
-    int index,
-    bool loop,
-    int itemCount,
-    Axis scrollDirection,
-  })  : assert(itemWidth != null && itemHeight != null),
-        super(
-            loop: loop,
-            key: key,
-            itemWidth: itemWidth,
-            itemHeight: itemHeight,
-            itemBuilder: itemBuilder,
-            curve: curve,
-            duration: duration,
-            controller: controller,
-            index: index,
-            onIndexChanged: onIndexChanged,
-            itemCount: itemCount,
-            scrollDirection: scrollDirection);
+// class _TinderSwiper extends _SubSwiper {
+//   _TinderSwiper({
+//     Key key,
+//     Curve curve,
+//     int duration,
+//     SwiperController controller,
+//     ValueChanged<int> onIndexChanged,
+//     double itemHeight,
+//     double itemWidth,
+//     IndexedWidgetBuilder itemBuilder,
+//     int index,
+//     bool loop,
+//     int itemCount,
+//     Axis scrollDirection,
+//   })  : assert(itemWidth != null && itemHeight != null),
+//         super(
+//             loop: loop,
+//             key: key,
+//             itemWidth: itemWidth,
+//             itemHeight: itemHeight,
+//             itemBuilder: itemBuilder,
+//             curve: curve,
+//             duration: duration,
+//             controller: controller,
+//             index: index,
+//             onIndexChanged: onIndexChanged,
+//             itemCount: itemCount,
+//             scrollDirection: scrollDirection);
 
-  @override
-  State<StatefulWidget> createState() {
-    return new _TinderState();
-  }
-}
+//   @override
+//   State<StatefulWidget> createState() {
+//     return new _TinderState();
+//   }
+// }
 
 class _StackSwiper extends _SubSwiper {
   _StackSwiper({
@@ -684,98 +684,98 @@ class _StackSwiper extends _SubSwiper {
   }
 }
 
-class _TinderState extends _CustomLayoutStateBase<_TinderSwiper> {
-  List<double> scales;
-  List<double> offsetsX;
-  List<double> offsetsY;
-  List<double> opacity;
-  List<double> rotates;
+// class _TinderState extends _CustomLayoutStateBase<_TinderSwiper> {
+//   List<double> scales;
+//   List<double> offsetsX;
+//   List<double> offsetsY;
+//   List<double> opacity;
+//   List<double> rotates;
 
-  double getOffsetY(double scale) {
-    return widget.itemHeight - widget.itemHeight * scale;
-  }
+//   double getOffsetY(double scale) {
+//     return widget.itemHeight - widget.itemHeight * scale;
+//   }
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
+//   @override
+//   void didChangeDependencies() {
+//     super.didChangeDependencies();
+//   }
 
-  @override
-  void didUpdateWidget(_TinderSwiper oldWidget) {
-    _updateValues();
-    super.didUpdateWidget(oldWidget);
-  }
+//   @override
+//   void didUpdateWidget(_TinderSwiper oldWidget) {
+//     _updateValues();
+//     super.didUpdateWidget(oldWidget);
+//   }
 
-  @override
-  void afterRender() {
-    super.afterRender();
+//   @override
+//   void afterRender() {
+//     super.afterRender();
 
-    _startIndex = -3;
-    _animationCount = 5;
-    opacity = [0.0, 0.9, 0.9, 1.0, 0.0, 0.0];
-    scales = [0.80, 0.80, 0.85, 0.90, 1.0, 1.0, 1.0];
-    rotates = [0.0, 0.0, 0.0, 0.0, 20.0, 25.0];
-    _updateValues();
-  }
+//     _startIndex = -3;
+//     _animationCount = 5;
+//     opacity = [0.0, 0.9, 0.9, 1.0, 0.0, 0.0];
+//     scales = [0.80, 0.80, 0.85, 0.90, 1.0, 1.0, 1.0];
+//     rotates = [0.0, 0.0, 0.0, 0.0, 20.0, 25.0];
+//     _updateValues();
+//   }
 
-  void _updateValues() {
-    if (widget.scrollDirection == Axis.horizontal) {
-      offsetsX = [0.0, 0.0, 0.0, 0.0, _swiperWidth, _swiperWidth];
-      offsetsY = [
-        0.0,
-        0.0,
-        -5.0,
-        -10.0,
-        -15.0,
-        -20.0,
-      ];
-    } else {
-      offsetsX = [
-        0.0,
-        0.0,
-        5.0,
-        10.0,
-        15.0,
-        20.0,
-      ];
+//   void _updateValues() {
+//     if (widget.scrollDirection == Axis.horizontal) {
+//       offsetsX = [0.0, 0.0, 0.0, 0.0, _swiperWidth, _swiperWidth];
+//       offsetsY = [
+//         0.0,
+//         0.0,
+//         -5.0,
+//         -10.0,
+//         -15.0,
+//         -20.0,
+//       ];
+//     } else {
+//       offsetsX = [
+//         0.0,
+//         0.0,
+//         5.0,
+//         10.0,
+//         15.0,
+//         20.0,
+//       ];
 
-      offsetsY = [0.0, 0.0, 0.0, 0.0, _swiperHeight, _swiperHeight];
-    }
-  }
+//       offsetsY = [0.0, 0.0, 0.0, 0.0, _swiperHeight, _swiperHeight];
+//     }
+//   }
 
-  @override
-  Widget _buildItem(int i, int realIndex, double animationValue) {
-    double s = _getValue(scales, animationValue, i);
-    double f = _getValue(offsetsX, animationValue, i);
-    double fy = _getValue(offsetsY, animationValue, i);
-    double o = _getValue(opacity, animationValue, i);
-    double a = _getValue(rotates, animationValue, i);
+//   @override
+//   Widget _buildItem(int i, int realIndex, double animationValue) {
+//     double s = _getValue(scales, animationValue, i);
+//     double f = _getValue(offsetsX, animationValue, i);
+//     double fy = _getValue(offsetsY, animationValue, i);
+//     double o = _getValue(opacity, animationValue, i);
+//     double a = _getValue(rotates, animationValue, i);
 
-    Alignment alignment = widget.scrollDirection == Axis.horizontal
-        ? Alignment.bottomCenter
-        : Alignment.centerLeft;
+//     Alignment alignment = widget.scrollDirection == Axis.horizontal
+//         ? Alignment.bottomCenter
+//         : Alignment.centerLeft;
 
-    return new Opacity(
-      opacity: o,
-      child: new Transform.rotate(
-        angle: a / 180.0,
-        child: new Transform.translate(
-          key: new ValueKey<int>(_currentIndex + i),
-          offset: new Offset(f, fy),
-          child: new Transform.scale(
-            scale: s,
-            alignment: alignment,
-            child: new SizedBox(
-              width: widget.itemWidth ?? double.infinity,
-              height: widget.itemHeight ?? double.infinity,
-              child: widget.itemBuilder(context, realIndex),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+//     return new Opacity(
+//       opacity: o,
+//       child: new Transform.rotate(
+//         angle: a / 180.0,
+//         child: new Transform.translate(
+//           key: new ValueKey<int>(_currentIndex + i),
+//           offset: new Offset(f, fy),
+//           child: new Transform.scale(
+//             scale: s,
+//             alignment: alignment,
+//             child: new SizedBox(
+//               width: widget.itemWidth ?? double.infinity,
+//               height: widget.itemHeight ?? double.infinity,
+//               child: widget.itemBuilder(context, realIndex),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class _StackViewState extends _CustomLayoutStateBase<_StackSwiper> {
   List<double> scales;
