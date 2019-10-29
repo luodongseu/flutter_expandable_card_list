@@ -1,4 +1,4 @@
-# flutter_expand_cards
+# flutter_expandable_card_list
 
 A card list which item could be expandable.
 
